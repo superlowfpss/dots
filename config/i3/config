@@ -194,18 +194,21 @@ bar {
 #	i3bar_command i3bar --transparency
 	workspace_min_width 40
 	position top
+#	mode hide
+#	hidden_state hide
+
 #	padding 0px 6px 0px 1px
 
     colors {
-        background #0000009F
+        background #00000000
         statusline #26a6a6
         separator #bcd42a
 
-#        focused_workspace  #c1fc003 #00db00 #c1fc003
-#        active_workspace   #333333 #5f676a #ffffff
-#        inactive_workspace #333333 #222222 #888888
-#        urgent_workspace   #2f343a #900000 #ffffff
-#        binding_mode       #2f343a #900000 #ffffff
+        focused_workspace  #bcd42a #2b2a27 #bcd42a
+        active_workspace   #353535 #2b2a27 #bcd42a
+        inactive_workspace #353535 #2b2a27 #ede0ce
+        urgent_workspace   #ff5d38 #2b2a27 #ede0ce
+        binding_mode       #ff5d38 #2b2a27 #bcd42a
     }
 }
 exec xrandr --output DisplayPort-1 --mode 1920x1080 --rate 74.97
@@ -214,7 +217,8 @@ exec_always --no-startup-id picom --config ~/.config/picom.conf
 exec --no-startup-id "setxkbmap -model pc105 -layout us,ru -option grp:win_space_toggle"
 exec --no-startup-id feh --bg-scale /home/andrew/Pictures/krita/bliss_cursed.jpg
 bindsym $mod+l exec i3lock -c 000000
-bindsym --release Print exec "import /tmp/screenshot.png && clipcatctl load -m image/png -f /tmp/screenshot.png"
+bindsym --release Print exec "flameshot gui"
+#bindsym --release Print exec "import /tmp/screenshot.png && clipcatctl load -m image/png -f /tmp/screenshot.png"
 bindsym $mod+Ctrl+q exec "nautilus"
 #i hate nautilus :3 :3
 bindsym $mod+Ctrl+s exec "steam -system-composer"
@@ -225,15 +229,19 @@ bindsym XF86AudioNext  exec "playerctl next"
 bindsym XF86AudioPrev exec "playerctl previous"
 bindsym XF86Mail exec "firefox"
 #tf is XF86mail
-exec_always --no-startup-id clipcatd
-exec_always pkill dunst && dunst
+
+exec_always --no-startup-id "greenclip daemon" 
+exec_always "pkill dunst && dunst"
+exec_always "pkill flameshot && flameshot"
 
 bindcode 196 exec "sh ~/.config/i3/mute.sh"
 bindsym $mod+Shift+n exec "sh ~/.config/dunst/pause.sh"
-bindsym $mod+h exec clipcat-menu
-bindsym $mod+Shift+h exec "clipcatctl clear"
+bindsym $mod+h exec "greenclip print | grep . | dmenu -i -l 20 -fn 'BedStead' -nb '#282828' -nf '#ebdbb2' -sb '#d3869b' -sf '#282828' -p clipboard | xargs -r -d'\n' -I '{}' greenclip print '{}'"
+bindsym $mod+Shift+h exec "greenclip clear"
 for_window [class=".*"] border normal 0
 for_window [class="^.*"] title_format "%title"
 title_align center
 
-#client.focused          #aaaaaa #974b46 #ffffff #2e9ef4   #285577
+client.focused          #353535 #2b2a27 #bcd42a #ff5d38   #000000
+client.focused_inactive #333333 #2b2a27 #bcd42a #ff5d38   #000000
+client.unfocused        #333333 #2b2a27 #ede0ce #ff5d38   #000000

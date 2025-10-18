@@ -12,7 +12,18 @@ preview_length = 80
 line_length = 100
 menu_length = 30
 menu_prompt = "Clipcat"
-extra_arguments = []
+extra_arguments = [
+  "-fn",
+  "BedStead",
+  "-nb",
+  "#282828",
+  "-nf",
+  "#ebdbb2",
+  "-sb",
+  "#d3869b",
+  "-sf",
+  "#282828",
+]
 
 [choose]
 line_length = 100

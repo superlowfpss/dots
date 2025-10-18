@@ -56,7 +56,9 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --entry-type=filename
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --entry-type=filename --dmenu='dmenu -l 20 -fn 'BedStead' -nb #282828 -nf #ebdbb2 -sb #d3869b -sf #282828'
+# colors are a little off
+# but i'll change that later
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -195,9 +197,9 @@ bar {
 #	padding 0px 6px 0px 1px
 
     colors {
-        background #0000007F
-        statusline #c1fc003
-        separator #0223c0
+        background #0000009F
+        statusline #26a6a6
+        separator #bcd42a
 
 #        focused_workspace  #c1fc003 #00db00 #c1fc003
 #        active_workspace   #333333 #5f676a #ffffff
@@ -224,6 +226,10 @@ bindsym XF86AudioPrev exec "playerctl previous"
 bindsym XF86Mail exec "firefox"
 #tf is XF86mail
 exec_always --no-startup-id clipcatd
+exec_always pkill dunst && dunst
+
+bindcode 196 exec "sh ~/.config/i3/mute.sh"
+bindsym $mod+Shift+n exec "sh ~/.config/dunst/pause.sh"
 bindsym $mod+h exec clipcat-menu
 bindsym $mod+Shift+h exec "clipcatctl clear"
 for_window [class=".*"] border normal 0

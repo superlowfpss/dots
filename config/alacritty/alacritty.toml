@@ -1,4 +1,4 @@
-general.import = ["~/.config/alacritty/theme.toml"]
+general.import = ["~/.config/alacritty/doom.toml"]
 
 [font]
 normal = { family = "BedStead", style = "Regular" }

@@ -8,6 +8,8 @@
 
 general {
         colors = true
+	color_good = "#98be65"
+	color_bad = "#ff5d38"
         interval = 5
 }
 
@@ -20,18 +22,18 @@ order += "disk /"
 order += "memory"
 order += "volume master"
 order += "tztime local"
-
+order += "tztime spb"
 
 
 
 wireless _first_ {
-        format_up = "W: (%quality at %essid) %ip"
-        format_down = "W: down"
+        format_up = "W: %essid (%ip)"
+        format_down = ""
 }
 
 ethernet _first_ {
         format_up = "E: %ip (%speed)"
-        format_down = "E: down"
+        format_down = ""
 }
 
 #battery all {
@@ -42,9 +44,9 @@ disk "/" {
         format = "S: %avail"
 }
 
-load {
-        format = "%1min"
-}
+#load {
+#        format = "%1min"
+#}
 
 memory {
         format = "M: %available(%used)"
@@ -55,8 +57,10 @@ memory {
 tztime local {
     format = "%d %B %H:%M"
 }
-
-#mine
+tztime spb {
+    format = "T: %H:%M"
+    timezone = "Europe/Moscow"
+}
 
 volume master {
     format = "V: %volume"

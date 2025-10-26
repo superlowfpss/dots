@@ -1,0 +1,30 @@
+{
+  "layer": "top",
+  "spacing": 0,
+  "height": 0,
+  "margin-top": -4,
+  "position": "bottom",
+  "margin-right": 300,
+  "margin-bottom": -3,
+  "margin-left": 300,
+
+  "modules-left": [
+    "custom/launcher",
+    "hyprland/workspaces",
+    "memory",
+    "custom/separator",
+    "custom/playerctl"
+  ],
+
+  "modules-center": ["clock"],
+
+  "modules-right": ["tray", "privacy", "hyprland/language", "pulseaudio#microphone", "pulseaudio"],
+
+
+  "tray": {
+    "spacing": 10,
+    "tooltip": false
+  },
+
+  "include": "~/.config/waybar/modules.jsonc"
+}

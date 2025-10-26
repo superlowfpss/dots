@@ -1,8 +1,9 @@
-general.import = ["~/.config/alacritty/doom.toml"]
+general.import = ["~/.config/alacritty/colors.toml"]
 
 [font]
 normal = { family = "BedStead", style = "Regular" }
 size = 10
 
 [window]
-opacity = 0.7
+opacity = 0.5
+padding = {x = 3, y = 3}

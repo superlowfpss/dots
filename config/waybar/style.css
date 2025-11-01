@@ -38,7 +38,7 @@ tooltip {
 tooltip label {
   color: white;
 }
-
+#window,
 #custom-launcher {
   color: @accent_color;
   text-shadow: 0px 0px 6px @accent_color;
@@ -57,6 +57,7 @@ tooltip label {
   border-width: 1px;
 }
 #clock,
+#user,
 #custom-playerctl,
 #memory,
 #privacy,
@@ -135,4 +136,3 @@ color: @accent_color;;
 color: #e78a4e;
 text-shadow: 0px 0px 6px #e78a4e;
 }
-

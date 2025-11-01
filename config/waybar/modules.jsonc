@@ -10,10 +10,23 @@
     "format": "{short}",
     "tooltip": "true",
     "tooltip-format": "Language: {long}"
-  },
-  "clock": {
-    "format": "{:%H:%M}",
-    "format-alt": "{:%d %B %H:%M}",
+},
+"group/time": {
+    "orientation": "inherit",
+    "drawer": {
+        "transition-duration": 350,
+        "children-class": "meowo",
+        "transition-left-to-right": false,
+    },
+    "modules": [
+	"clock",
+	"user",
+	"memory",
+    ]
+},
+"clock": {
+	"format": "{:%H:%M}",
+	"format-alt": "{:%d %B %H:%M}",
         "tooltip-format": "\n<span size='8pt' font='BedStead'>{calendar}</span>",
         "calendar": {
                     "mode"          : "year",
@@ -30,24 +43,16 @@
                     "on-click-right": "mode",
                     },
   },
-  "pulseaudio": {
-    "scroll-step": 10,
-    "max-volume": 100,
-    "format": "{icon} {volume}%",
-    "format-bluetooth": "{icon} {volume}%",
-    "format-icons": ["", "", " "],
-    "nospacing": 1,
-    "format-muted": "",
-    "on-click": "pavucontrol",
-    "tooltip": false,
-  },
-  "pulseaudio#microphone": {
-  "format": "{format_source}",
-  "format-source": "<span size='14pt'>󰍬</span>",
-  "format-source-muted": "<span size='14pt'>󰍭</span>",
-  "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
-  "tooltip": false
-  },
+"user": {
+        "format": "{work_H}:{work_M}",
+        "interval": 60,
+	"open-on-click": false,
+},
+"memory": {
+    "interval": 30,
+    "format": "{used:0.1f}G/{total:0.1f}G",
+    "tooltip": false
+},
   "privacy": {
   "icon-size": 14,
   "transition-duration": 250,
@@ -70,15 +75,70 @@
     "return-type": "json",
     "on-click": "playerctl play-pause",
     "on-scroll-up": "playerctl next",
-    "on-scroll-down": "playerctl previous"
+    "on-scroll-down": "playerctl previous",
+    "max-length": 60
 },
 "custom/separator": {
     "format": "      ",
     "interval": "once",
     "tooltip": false
 },
-"memory": {
-    "interval": 30,
-    "format": "{used:0.1f}G/{total:0.1f}G"
+"hyprland/workspaces": {
+	"format": "{icon}",
+	"format-icons": {
+		"1": "ūnus",
+		"2": "duo",
+		"3": "trēs",
+		"4": "quattuor",
+		"5": "quīnque",
+		"6": "sex",
+		"7": "septem",
+		"8": "octō",
+		"9": "novem",
+		"10": "decem",
+	},
+    	"persistent-workspaces": {
+             "*": 5,
+       },
+
+},
+"hyprland/window": {
+    "format": "{}",
+    "max-length": 40
+},
+"group/audio": {
+    "orientation": "inherit",
+    "drawer": {
+        "transition-duration": 200,
+        "children-class": "woem",
+        "transition-left-to-right": false,
+    },
+    "modules": [
+	"pulseaudio",
+	"pulseaudio#microphone",
+    ]
+},
+"pulseaudio": {
+  "scroll-step": 10,
+  "max-volume": 100,
+  "format": "{icon} {volume}%",
+  "format-bluetooth": "{icon} {volume}%",
+  "format-icons": ["", "", " "],
+  "nospacing": 1,
+  "format-muted": "",
+  "on-click": "pavucontrol",
+  "tooltip": false,
+  },
+"pulseaudio#microphone": {
+  "format": "{format_source}",
+  "format-source": "<span size='14pt'>󰍬</span>",
+  "format-source-muted": "<span size='14pt'>󰍭</span>",
+  "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+  "tooltip": false
+},
+"tray": {
+    "spacing": 3,
+//    "icon-size": 16, ##it works automaticly i guessss???##
+    "tooltip": false
 },
 }

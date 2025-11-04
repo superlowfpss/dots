@@ -22,6 +22,7 @@
 	"clock",
 	"user",
 	"memory",
+	"power-profiles-daemon",
     ]
 },
 "clock": {
@@ -47,6 +48,17 @@
         "format": "{work_H}:{work_M}",
         "interval": 60,
 	"open-on-click": false,
+},
+"power-profiles-daemon": {
+  "format": "{icon}",
+  "tooltip-format": "power-profile: {profile}",
+  "tooltip": true,
+  "format-icons": {
+    "default": "?",
+    "performance": "sport",
+    "balanced": "comfort",
+    "power-saver": "caged"
+  }
 },
 "memory": {
     "interval": 30,

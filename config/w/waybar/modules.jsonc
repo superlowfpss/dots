@@ -1,13 +1,33 @@
 {
-
+  // Launcher
+  "custom/launcher": {
+    "format": " ",
+    "on-click": "wofi --show drun",
+    "tooltip": false
+  },
 
   "hyprland/language": {
     "format": "{short}",
     "tooltip": "true",
     "tooltip-format": "Language: {long}"
 },
+"group/time": {
+    "orientation": "inherit",
+    "drawer": {
+        "transition-duration": 350,
+        "children-class": "meowo",
+        "transition-left-to-right": false,
+    },
+    "modules": [
+	"clock",
+	"user",
+	"memory",
+	"power-profiles-daemon",
+    ]
+},
 "clock": {
-	"format": "{:%d %B %H:%M}",
+	"format": "{:%H:%M}",
+	"format-alt": "{:%d %B %H:%M}",
         "tooltip-format": "\n<span size='8pt' font='BedStead'>{calendar}</span>",
         "calendar": {
                     "mode"          : "year",
@@ -20,12 +40,15 @@
                               "today":      "<span color='#ff5d38'><b><u>{}</u></b></span>"
                               }
                     },
+        "actions":  {
+                    "on-click-right": "mode",
+                    },
   },
-  "custom/launcher": {
-    "format": " ",
-    "on-click": "wofi --show drun",
-    "tooltip": false
-  },
+"user": {
+        "format": "{work_H}:{work_M}",
+        "interval": 60,
+	"open-on-click": false,
+},
 "power-profiles-daemon": {
   "format": "{icon}",
   "tooltip-format": "power-profile: {profile}",
@@ -95,21 +118,33 @@
     "format": "{}",
     "max-length": 40
 },
+"group/audio": {
+    "orientation": "inherit",
+    "drawer": {
+        "transition-duration": 200,
+        "children-class": "woem",
+        "transition-left-to-right": false,
+    },
+    "modules": [
+	"pulseaudio",
+	"pulseaudio#microphone",
+    ]
+},
 "pulseaudio": {
   "scroll-step": 10,
   "max-volume": 100,
-  "format": "{volume}%",
-  "format-bluetooth": "{volume}%",
+  "format": "{icon} {volume}%",
+  "format-bluetooth": "{icon} {volume}%",
+  "format-icons": ["", "", " "],
   "nospacing": 1,
-  "format-muted": "muted",
+  "format-muted": "",
   "on-click": "pavucontrol",
   "tooltip": false,
   },
 "pulseaudio#microphone": {
-  "scroll-step": 10,
   "format": "{format_source}",
-  "format-source": "  ",
-  "format-source-muted": "  ",
+  "format-source": "<span size='14pt'>󰍬</span>",
+  "format-source-muted": "<span size='14pt'>󰍭</span>",
   "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
   "tooltip": false
 },

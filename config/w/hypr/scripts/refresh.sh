@@ -6,5 +6,3 @@ hyprpaper
 pkill waybar
 sleep 0.5
 waybar
-uptime=$(uptime -p)
-dunstify "uptime" "$uptime" --icon=meow  -u normal

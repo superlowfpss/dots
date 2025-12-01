@@ -5,7 +5,7 @@
   border-radius: 8;
   min-height: 0;
   /* For the taskbar, I prefer simple Noto Sans.*/
-  font-family: Departure Mono; /*Fira Code;*/
+  font-family: Fira Code;
   font-weight: Bold;
   font-size: 10px;
   padding: 0px;
@@ -13,8 +13,6 @@
   padding-right: 0px;
   background: transparent;
 }
-
-
 
 window#waybar {
   background-image: linear-gradient(to bottom, rgba(255,255,255,0.25)0%, rgba(0,0,0,0.5)50%, rgba(0,0,0,0.6)50%);
@@ -25,7 +23,6 @@ window#waybar {
 
   border-style: solid;
   border-color: rgba(255,255,255,0.2);
-/*  background-color: transparent; */
 }
 
 tooltip {
@@ -41,10 +38,8 @@ tooltip {
 tooltip label {
   color: white;
 }
-
 #power-profiles-daemon.performance,
 #window,
-#pulseaudio.microphone,
 #custom-launcher {
   color: @accent_color;
   text-shadow: 0px 0px 6px @accent_color;
@@ -139,7 +134,6 @@ text-shadow: 0px 0px 4px rgb(135,135,135);
 color: @accent_color;;
 }
 #power-profiles-daemon.power-saver,
-#pulseaudio.microphone.source-muted,
 #workspaces button.urgent {
 color: #e78a4e;
 text-shadow: 0px 0px 6px #e78a4e;

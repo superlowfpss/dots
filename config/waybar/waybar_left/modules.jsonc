@@ -1,0 +1,135 @@
+{
+
+
+  "hyprland/language": {
+    "format": "{short}",
+    "tooltip": "true",
+    "tooltip-format": "Language: {long}"
+},
+"clock": {
+	"format": "{:%H\n%M}",
+        "tooltip-format": "\n<span size='8pt' font='BedStead'>{calendar}</span>",
+        "calendar": {
+                    "mode"          : "year",
+                    "mode-mon-col"  : 3,
+                    "on-scroll"     : 1,
+                    "format": {
+                              "months":     "<span color='#bcd42a'><b>{}</b></span>",
+                              "days":       "<span color='#ffffff'><b>{}</b></span>",
+                              "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                              "today":      "<span color='#ff5d38'><b><u>{}</u></b></span>"
+                              }
+                    },
+  },
+"power-profiles-daemon": {
+//  "rotate": 270,
+  "format": "{icon}",
+  "tooltip-format": "power-profile: {profile}",
+  "tooltip": true,
+  "format-icons": {
+    "default": "?",
+    "performance": "󰈐",
+    "balanced": "󰗑",
+    "power-saver": "󰤄"
+  }
+},
+"memory": {
+    "rotate": 270,
+    "interval": 30,
+    "format": "{used:0.1f}G/{total:0.1f}G",
+    "tooltip": false
+},
+  "privacy": {
+  "icon-size": 14,
+  "transition-duration": 250,
+  "modules": [
+    {
+      "type": "screenshare",
+      "tooltip": false,
+    }
+  ],
+  "ignore": [
+    {
+      "type": "screenshare",
+      "name": "obs"
+    }
+  ]
+  },
+"custom/playerctl": {
+    "rotate": 270,
+    "exec": "/usr/bin/python3 ~/.config/waybar/modules/playerctl.py",
+    "format": "{}",
+    "return-type": "json",
+    "on-click": "playerctl play-pause",
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous",
+    "max-length": 40
+},
+"custom/separator": {
+    "rotate": 270,
+    "format": "      ",
+    "interval": "once",
+    "tooltip": false
+},
+"hyprland/workspaces": {
+
+	"format": "{icon}",
+	"format-icons": {
+		"1": "1",
+		"2": "2",
+		"3": "3",
+		"4": "4",
+		"5": "5",
+		"6": "6",
+		"7": "7",
+		"8": "8",
+		"9": "9",
+		"10": "0",
+	"rotate": 270
+	},
+    	"persistent-workspaces": {
+             "*": 5,
+       },
+
+},
+"hyprland/window": {
+    "rotate": 270,
+    "format": "{}",
+    "max-length": 40
+},
+"pulseaudio": {
+//  "rotate": 270,
+  "scroll-step": 10,
+  "max-volume": 100,
+  "format": "{volume}",
+  "format-bluetooth": "{volume}",
+  "nospacing": 1,
+  "format-muted": "0",
+  "on-click": "pavucontrol",
+  "tooltip": false,
+  },
+"pulseaudio#microphone": {
+//  "rotate": 90,
+  "scroll-step": 10,
+  "format": "{format_source}",
+  "format-source": "󰍬",
+  "format-source-muted": "󰍭",
+  "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+  "tooltip": false
+},
+"tray": {
+    "spacing": 3,
+//    "icon-size": 16, ##it works automaticly i guessss???##
+    "tooltip": false
+},
+"pulseaudio/slider": {
+    "min": 0,
+    "max": 100,
+    "orientation": "vertical",
+    "on-click": "pavucontrol"
+},
+"group/pulse": {
+	"orientation": "vertical",
+	"modules": ["pulseaudio#microphone", "pulseaudio/slider"/*, "pulseaudio"*/]
+},
+}

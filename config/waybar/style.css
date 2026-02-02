@@ -1,11 +1,11 @@
-@define-color accent_color #20d0fc;
+@define-color accent_color #a7c080/*#20d0fc*/;
 
 * {
   border: none;
   border-radius: 8;
   min-height: 0;
   /* For the taskbar, I prefer simple Noto Sans.*/
-  font-family: Departure Mono; /*Fira Code;*/
+  font-family: Departure Mono;
   font-weight: Bold;
   font-size: 10px;
   padding: 0px;
@@ -44,8 +44,7 @@ tooltip label {
 
 #power-profiles-daemon.performance,
 #window,
-#pulseaudio.microphone,
-#custom-launcher {
+#pulseaudio.microphone {
   color: @accent_color;
   text-shadow: 0px 0px 6px @accent_color;
   font-size: 9px;
@@ -62,16 +61,33 @@ tooltip label {
   border-top-color: rgba(255,255,255,0.45);
   border-width: 1px;
 }
-#power-profiles-daemon,
 #clock,
+#custom-launcher {
+  color: #8da101;
+  text-shadow: 0px 0px 6px #8da101;
+  font-size: 9px;
+  background-image: linear-gradient(to bottom, rgba(255,255,255,0.25), rgba(0,0,0,0.025));
+  box-shadow: 0px 0px 3px rgba(0,0,0,0.34);
+  margin: 4px;
+  margin-left: 0.1cm;
+  padding: 4px 8px;
+  border-radius: 8px;
+  border-style: none;
+  border-bottom-style: solid;
+  border-top-style: solid;
+  border-bottom-color: rgba(255,255,255,0.15);
+  border-top-color: rgba(255,255,255,0.45);
+  border-width: 1px;
+}
+#power-profiles-daemon,
 #user,
 #custom-playerctl,
 #memory,
 #privacy,
 #calendar,
 #tray,
-#workspaces,
 #language,
+#workspaces,
 #pulseaudio {
   background-image: linear-gradient(to bottom, rgba(255,255,255,0.25), rgba(0,0,0,0.025));
   box-shadow: 0px 0px 3px rgba(0,0,0,0.34);
@@ -113,7 +129,7 @@ tooltip label {
   box-shadow: 0px 0px 4px rgba(0,0,0,0.4);
 }
 
-#workspaces button {
+/*#workspaces button {
 transition-duration: 100ms;
 all: initial;
 min-width: 0;
@@ -137,7 +153,43 @@ text-shadow: 0px 0px 4px rgb(135,135,135);
 
 #workspaces button.current_output {
 color: @accent_color;;
+}*/
+
+#workspaces button {
+    all:unset;
+    padding: 0px 5px;
+    color: alpha(@accent_color,.4);
+    transition: all .2s ease;
+    text-shadow: 0px 0px 6px alpha(@accent_color,.4);
 }
+#workspaces button:hover {
+    color: alpha(@accent_color,.7);
+    border: none;
+    text-shadow: 0px 0px 6px alpha(@accent_color,.7);
+    transition: all .2s ease;
+}
+#workspaces button.active {
+    color: @accent_color;
+    border: none;
+    text-shadow: 0px 0px 6px @accent_color;
+}
+#workspaces button.empty {
+    color: alpha(@accent_color,.2);
+    border: none;
+    text-shadow: 0px 0px 6px alpha(@accent_color,.2);
+}
+#workspaces button.empty:hover {
+    color: alpha(@accent_color,.3);
+    border: none;
+    text-shadow: 0px 0px 6px alpha(@accent_color,.3);
+    transition: all .4s ease;
+}
+#workspaces button.empty.active {
+    color: alpha(@accent_color,.5);
+    border: none;
+    text-shadow: 0px 0px 6px alpha(@accent_color,.5);
+}
+
 #power-profiles-daemon.power-saver,
 #pulseaudio.microphone.source-muted,
 #workspaces button.urgent {

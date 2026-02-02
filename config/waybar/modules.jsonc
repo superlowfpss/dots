@@ -19,7 +19,7 @@
                               "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
                               "today":      "<span color='#ff5d38'><b><u>{}</u></b></span>"
                               }
-                    },
+                    }
   },
   "custom/launcher": {
     "format": " ",

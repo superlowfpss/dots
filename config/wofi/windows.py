@@ -27,7 +27,7 @@ mapped_windows = list(map(mapWindow, filtered_windows))
 
 print(mapped_windows)
 
-selected_window = os.popen("echo \"%s\" | wofi --width=600 --height=300 -S dmenu"%("\n".join(mapped_windows))).read()
+selected_window = os.popen("echo \"%s\" | wofi --insensitive --prompt rawr --width=600 --height=300 -S dmenu"%("\n".join(mapped_windows))).read()
 
 print("selected_window: %s"%(selected_window))
 

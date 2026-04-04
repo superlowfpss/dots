@@ -99,6 +99,10 @@ swayimg.viewer.on_key("d", function()
 end)
 
 swayimg.viewer.on_key("s", function()
+    swayimg.viewer.set_fix_scale("fit")
+end)
+
+swayimg.viewer.on_key("w", function()
     antialiasing_enabled = not antialiasing_enabled
     swayimg.enable_antialiasing(antialiasing_enabled)
     if antialiasing_enabled then -- IF ELSE IF ELSE IF ELSE IF ELSE IF ELSE IF ELSE IF ELSE IF ELSE 

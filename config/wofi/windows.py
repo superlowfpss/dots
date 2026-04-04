@@ -5,7 +5,7 @@ import sys
 import os
 import json
 import re
-import array as arr
+import subprocess
 
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
@@ -19,21 +19,44 @@ def resolveIconPath(iconName):
         return ""
 
 def mapWindow(w):
-    return "img:%s:text:%s"%(resolveIconPath(w["class"]), "%s (%s_%s)"%(w["title"], w["address"], w["workspace"]["id"]))
+    workspace_id = w["workspace"]["id"]
+    # Format: w-1 App Name
+    return "img:%s:text:w-%d %s" % (resolveIconPath(w["class"]), workspace_id, w["title"])
 
 windows = json.loads(os.popen("hyprctl -j clients").read())
 filtered_windows = list(filter(lambda w: w["workspace"]["id"] != -1, windows))
+# Sort windows by workspace ID for better organization
+filtered_windows.sort(key=lambda w: w["workspace"]["id"])
 mapped_windows = list(map(mapWindow, filtered_windows))
 
-print(mapped_windows)
+# Use subprocess.run instead of os.popen to avoid shell interpretation issues
+wofi_process = subprocess.run(
+    ["wofi", "--insensitive", "--prompt", "rawr", "--width=600", "--height=300", "-S", "dmenu"],
+    input="\n".join(mapped_windows),
+    capture_output=True,
+    text=True
+)
 
-selected_window = os.popen("echo \"%s\" | wofi --insensitive --prompt rawr --width=600 --height=300 -S dmenu"%("\n".join(mapped_windows))).read()
+selected_window = wofi_process.stdout.strip()
 
-print("selected_window: %s"%(selected_window))
+print("selected_window: %s" % (selected_window))
 
-if (selected_window):
-    match = re.search(r"\((\w+)\)$", selected_window)
-    addr = match.group(1).split("_")[0]
-    os.system("hyprctl dispatch focuswindow address:%s"%(addr))
+if selected_window:
+    # Extract just the title part (after the "w-X " prefix)
+    # The pattern looks for "w-<number> " at the beginning and captures everything after
+    match = re.search(r"w-\d+\s+(.+)", selected_window)
+    if match:
+        selected_title = match.group(1)
+        
+        # Find the window by matching the title
+        for w in filtered_windows:
+            if w["title"] == selected_title:
+                addr = w["address"]
+                os.system("hyprctl dispatch focuswindow address:%s" % (addr))
+                break
+        else:
+            print("Could not find window with title: %s" % selected_title)
+    else:
+        print("Could not parse selected window: %s" % selected_window)
 else:
     print("no selected_window")

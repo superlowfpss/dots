@@ -19,7 +19,7 @@
   "allow_sliding": true,
   "focus_follows_mouse_mode": false,
   "left_handed_mouse": false,
-  "block_game_input": false,
+  "block_game_input": true,
   "block_game_input_ignore_watch": true,
   "block_poses_on_kbd_interaction": true,
   "space_drag_multiplier": 1.0,
@@ -36,8 +36,8 @@
   "xwayland_by_default": false,
   "context_menu_hold_and_release": false,
   "capture_method": "Auto",
-  "keyboard_middle_click_mode": "None",
+  "keyboard_middle_click_mode": "Super",
   "autostart_apps": [],
-  "handsfree_pointer": "Hmd",
+  "handsfree_pointer": "None",
   "language": null
 }

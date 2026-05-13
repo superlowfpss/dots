@@ -1,0 +1,15 @@
+{
+  "uuid": "e01d91b2-aaf1-4af2-8da8-b4ce5ce42353",
+  "created_at": "2026-04-17",
+  "modified_at": "2026-04-17",
+  "version": 1,
+  "name": "Ice Cubes",
+  "description": "Created in Blender",
+  "author": "oo8dev",
+  "files": {
+    "size_8k": "ice_cubes_8k.dds",
+    "size_4k": "ice_cubes_4k.dds",
+    "size_2k": "ice_cubes_2k.dds",
+    "preview": "ice_cubes_preview.jpg"
+  }
+}

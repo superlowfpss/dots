@@ -1,0 +1,15 @@
+{
+  "uuid": "702bb5d3-1543-45c1-86e5-bb303f0d9bbd",
+  "created_at": "2024-07-24",
+  "modified_at": "2024-07-24",
+  "version": 1,
+  "name": "Table Mountain 2",
+  "description": "The original WlxOverlay-S Skymap. Adapted for VR use by Galister. CC0, https://polyhaven.com",
+  "author": "Rico Cilliers",
+  "files": {
+    "size_8k": null,
+    "size_4k": "table_mountain_2_4k.dds",
+    "size_2k": "table_mountain_2_2k.dds",
+    "preview": "table_mountain_2_preview.jpg"
+  }
+}

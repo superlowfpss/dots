@@ -21,10 +21,10 @@
   "left_handed_mouse": false,
   "block_game_input": true,
   "block_game_input_ignore_watch": true,
-  "block_poses_on_kbd_interaction": true,
+  "block_poses_on_kbd_interaction": false,
   "space_drag_multiplier": 1.0,
   "use_skybox": true,
-  "grid_opacity": 1.0,
+  "grid_opacity": 0.0,
   "use_passthrough": false,
   "screen_render_down": false,
   "pointer_lerp_factor": 0.3,
@@ -39,5 +39,19 @@
   "keyboard_middle_click_mode": "Super",
   "autostart_apps": [],
   "handsfree_pointer": "None",
-  "language": null
+  "language": null,
+  "chroma_key_params": {
+    "hsv_min": [
+      0.33333334,
+      1.0,
+      1.0
+    ],
+    "hsv_max": [
+      0.33333334,
+      1.0,
+      1.0
+    ],
+    "curve": 0.0,
+    "despill": 0.0
+  }
 }

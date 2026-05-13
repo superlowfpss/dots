@@ -102,6 +102,15 @@ swayimg.viewer.on_key("s", function()
     swayimg.viewer.set_fix_scale("fit")
 end)
 
+swayimg.viewer.on_key("Ctrl+c", function()
+    local image = swayimg.viewer.get_image()
+    if image and image.path then
+        local cmd = string.format("wl-copy < '%s' &", image.path)
+        os.execute(cmd)
+        swayimg.text.set_status("copied: " .. image.path)
+    end
+end)
+
 swayimg.viewer.on_key("w", function()
     antialiasing_enabled = not antialiasing_enabled
     swayimg.enable_antialiasing(antialiasing_enabled)

@@ -3,23 +3,23 @@
     {
       "name": "",
       "overlays": {
-        "DP-2": {
-          "alpha": 1.0,
-          "grabbable": true,
-          "interactable": true,
-          "positioning": "Anchored",
-          "curvature": 0.004758469,
-          "additive": false,
-          "saved_transform": null,
-          "block_input": true,
-          "angle_fade": false
-        },
         "kbd": {
           "alpha": 1.0,
           "grabbable": true,
           "interactable": true,
           "positioning": "Anchored",
-          "curvature": 0.15,
+          "curvature": 0.14999999,
+          "additive": false,
+          "saved_transform": null,
+          "block_input": true,
+          "angle_fade": false
+        },
+        "DP-2": {
+          "alpha": 1.0,
+          "grabbable": true,
+          "interactable": true,
+          "positioning": "Anchored",
+          "curvature": 0.14999999,
           "additive": false,
           "saved_transform": null,
           "block_input": true,
@@ -52,6 +52,14 @@
   "attribs": [
     [
       "toast",
+      []
+    ],
+    [
+      "woem",
+      []
+    ],
+    [
+      "media",
       []
     ],
     [

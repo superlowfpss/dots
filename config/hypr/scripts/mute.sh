@@ -5,8 +5,8 @@ MUTE_STATE=$(pactl list sources | grep -A 10 "Name: $DEFAULT_SOURCE" | grep "Mut
 
 if [[ "$MUTE_STATE" == "yes" ]]; then
     pactl set-source-mute "$DEFAULT_SOURCE" 0
-    dunstify "Microphone Unmuted" --icon=audio-input-microphone-available-symbolic -u normal
+    dunstify "Microphone Unmuted" -u normal
 else
     pactl set-source-mute "$DEFAULT_SOURCE" 1
-    dunstify "Microphone Muted" --icon=audio-input-microphone-muted-symbolic -u critical
+    dunstify "Microphone Muted" -u critical
 fi

@@ -22,7 +22,7 @@
                     }
   },
   "custom/launcher": {
-    "format": " ",
+    "format": "w",
     "on-click": "wofi --show drun",
     "tooltip": false
   },
@@ -109,8 +109,8 @@
 "pulseaudio#microphone": {
   "scroll-step": 10,
   "format": "{format_source}",
-  "format-source": "  ",
-  "format-source-muted": "  ",
+  "format-source": "mute",
+  "format-source-muted": "mute",
   "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
   "tooltip": false
 },

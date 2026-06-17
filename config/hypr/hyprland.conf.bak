@@ -23,6 +23,15 @@ env = QT_STYLE_OVERRIDE,kvantum
 env = XCURSOR_SIZE,12
 env = HYPRCURSOR_SIZE,12
 #		exec
+#exec-once = /usr/lib/xdg-desktop-portal #bash -c "/usr/lib/xdg-desktop-portal-hyprland; sleep 2; /usr/lib/xdg-desktop-portal" #fix for "upgraded xdg-desktop-portal (1.20.4-1 -> 1.22.0-1)" - see https://github.com/flatpak/xdg-desktop-portal/issues/1983#issuecomment-4651275776
+
+
+exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=Hyprland
+exec-once = systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+exec-once = systemctl --user start hyprland-session.target
+
+
+
 exec-once = nm-applet
 exec-once = hyprpaper
 exec-once = waybar
@@ -193,7 +202,7 @@ bind = $mainMod SHIFT, RIGHT, movewindow, r
 bind = $mainMod SHIFT, UP, movewindow, u
 bind = $mainMod SHIFT, DOWN, movewindow, d
 #		zoom
-binde = SUPER, minus, exec, hyprctl getoption cursor:zoom_factor | grep float | awk '{if($2!=1) system("hyprctl keyword cursor:zoom_factor " $2 - 0.5) }'
+binde = SUPER, minus, exec, hyprctl keyword cursor:zoom_factor 1
 binde = SUPER, equal, exec, hyprctl getoption cursor:zoom_factor | grep float | awk '{ system("hyprctl keyword cursor:zoom_factor " $2 + 0.5) }'
 #		volume/music
 bindel = ,XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 10%+
@@ -235,7 +244,7 @@ layerrule {
 layerrule {
   name = no_anim_for_selection
   no_anim = 1
-  match:namespace = selection
+  match:namespace = ^(selection|hyprpicker)$
 }
 
 #		custom

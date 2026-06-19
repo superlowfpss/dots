@@ -109,6 +109,9 @@ hl.config({
     misc = {
         force_default_wallpaper = 0,
         disable_hyprland_logo   = true,
+	render_unfocused_fps = 30,
+	enable_anr_dialog = false,
+	session_lock_xray = true,
     },
     cursor = {
 	    no_hardware_cursors = true,
@@ -130,6 +133,9 @@ hl.config({
             natural_scroll = false,
         },
     },
+    render = {
+	    direct_scanout = 0,
+    },
 })
 
 hl.gesture({
@@ -149,6 +155,7 @@ hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + SHIFT + J", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))
 hl.bind(mainMod .. " + SHIFT + N", hl.dsp.exec_cmd("~/.config/dunst/pause.sh"))
+hl.bind(mainMod .. " + period", hl.dsp.exec_cmd("~/.config/hypr/scripts/emoji.sh"))
 hl.bind(mainMod .. " + Control_R", hl.dsp.exec_cmd("~/.config/hypr/scripts/refresh.sh"))
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("swaylock -f -c 000000 --line-color 000000 --inside-color 000000 --ring-color a7c080 --key-hl-color e78a4e"))
 
@@ -157,7 +164,7 @@ hl.bind(mainMod .. " + minus", hl.dsp.exec_cmd('hyprctl eval "hl.config({ cursor
 hl.bind(mainMod .. " + equal", hl.dsp.exec_cmd('hyprctl eval "hl.config({ cursor = { zoom_factor = $(hyprctl getoption cursor:zoom_factor | awk \'/float/ {print $2 + 0.5}\') } })"'))
 
 hl.bind("F18", hl.dsp.exec_cmd("~/.config/hypr/scripts/mute.sh"))
-
+hl.bind("F17", hl.dsp.exec_cmd("~/.config/hypr/scripts/obs.sh"))
 hl.bind("F16", hl.dsp.exec_cmd("sleep 0.5 && hyprshot --mode output -m DP-2 --output-folder /tmp"))
 hl.bind("CTRL" .. " + PRINT", hl.dsp.exec_cmd("hyprshot --mode region --output-folder /tmp --freeze"))
 hl.bind("ALT" .. " + PRINT", hl.dsp.exec_cmd("hyprpicker -f hex -a -r"))
@@ -247,7 +254,7 @@ hl.layer_rule({
 
 hl.window_rule({
     name  = "optional noscreenshare",
-    match = { namespace = "^(vesktop|org.telegram.desktop)$"},
+    match = { class = "vesktop"},
     no_screen_share = hide
     }
 )

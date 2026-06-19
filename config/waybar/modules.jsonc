@@ -109,8 +109,8 @@
 "pulseaudio#microphone": {
   "scroll-step": 10,
   "format": "{format_source}",
-  "format-source": "mute",
-  "format-source-muted": "mute",
+  "format-source": "  ",
+  "format-source-muted": "  ",
   "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
   "tooltip": false
 },

@@ -4,7 +4,7 @@
   border: none;
   border-radius: 8;
   min-height: 0;
-  font-family: Departure Mono;
+  font-family: "Departure Mono";
   font-weight: Bold;
   font-size: 10px;
   padding: 0px;
@@ -28,7 +28,7 @@ window#waybar {
 }
 
 tooltip {
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.4)50%, rgba(0,0,0,0.5)50%, rgba(0,0,0,0.6)50%);
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.15)50%, rgba(0,0,0,0.3)50%, rgba(0,0,0,0.4)50%);
   color: white;
   border-top-style: solid;
   border-bottom-style: solid;
@@ -41,11 +41,29 @@ tooltip label {
 }
 
 #power-profiles-daemon.performance,
-#window,
-#pulseaudio.microphone {
+#window {
   color: @accent_color;
   text-shadow: 0px 0px 6px @accent_color;
-  font-size: 9px;
+  font-size: 10px;
+  background-image: linear-gradient(to bottom, rgba(255,255,255,0.25), rgba(0,0,0,0.025));
+  box-shadow: 0px 0px 3px rgba(0,0,0,0.34);
+  margin: 4px;
+  margin-left: 0.1cm;
+  padding: 4px 8px;
+  border-radius: 8px;
+  border-style: none;
+  border-bottom-style: solid;
+  border-top-style: solid;
+  border-bottom-color: rgba(255,255,255,0.15);
+  border-top-color: rgba(255,255,255,0.45);
+  border-width: 1px;
+}
+
+#pulseaudio.microphone {
+  font-family: "Terminess Nerd Font";
+  font-size: 10px;
+  color: @accent_color;
+  text-shadow: 0px 0px 6px @accent_color;
   background-image: linear-gradient(to bottom, rgba(255,255,255,0.25), rgba(0,0,0,0.025));
   box-shadow: 0px 0px 3px rgba(0,0,0,0.34);
   margin: 4px;
@@ -63,7 +81,7 @@ tooltip label {
 #custom-launcher {
   color: #8da101;
   text-shadow: 0px 0px 6px #8da101;
-  font-size: 9px;
+  font-size: 10px;
   background-image: linear-gradient(to bottom, rgba(255,255,255,0.25), rgba(0,0,0,0.025));
   box-shadow: 0px 0px 3px rgba(0,0,0,0.34);
   margin: 4px;
@@ -103,7 +121,7 @@ tooltip label {
 }
 
 #tray menu {
-  background-color: rgba(255,255,255,0.025);
+  background-color: rgba(0,0,0,0.25);
   color: rgba(220,220,220, 1);
   padding: 4px;
 }
@@ -163,8 +181,13 @@ tooltip label {
 }
 
 #power-profiles-daemon.power-saver,
-#pulseaudio.microphone.source-muted,
+#pulseaudio.microphone.source-muted {
+color: #e78a4e;
+text-shadow: 0px 0px 6px #e78a4e;
+}
 #workspaces button.urgent {
+font-family: "Terminess Nerd Font";
+font-size: 10px;
 color: #e78a4e;
 text-shadow: 0px 0px 6px #e78a4e;
 }
